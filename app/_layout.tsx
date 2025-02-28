@@ -1,4 +1,4 @@
-import { SplashScreen, Stack } from "expo-router";
+import { SplashScreen, Stack } from "expo-router"; // Import Stack from expo-router
 import "./global.css";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
@@ -15,7 +15,7 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    if (!fontsLoaded) {
+    if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
@@ -26,11 +26,16 @@ export default function RootLayout() {
 
   return (
     <GlobalProvider>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      />
+      <Stack screenOptions={{ headerShown: false }}>
+        {/* Default tab layout */}
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+
+        {/* Full-screen Split Bill Screen */}
+        <Stack.Screen
+          name="SplitBillScreen"
+          options={{ presentation: "modal" }}
+        />
+      </Stack>
     </GlobalProvider>
   );
 }

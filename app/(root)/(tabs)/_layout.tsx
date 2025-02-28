@@ -56,12 +56,12 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="split"
         options={{
-          title: "Explore",
+          title: "Split Bill",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} icon={icons.search} title="Explore" />
+            <TabIcon focused={focused} icon={icons.wallet} title="Split Bill" />
           ),
         }}
       />
